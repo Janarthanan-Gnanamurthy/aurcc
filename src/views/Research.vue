@@ -4,17 +4,16 @@
     <section class="bg-cover bg-center relative -z-10" :style="'background-image: url(http://192.168.72.231:5173/src/assets/dgate-hero.jpg)'">
       <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-blue-900 via-transparent to-blue-900 opacity-70"></div>
       <div class="container mx-auto py-16 text-center text-white relative z-10">
-        <h1 class="text-5xl font-extrabold mb-4 drop-shadow-lg text-black">{{ data.name }}</h1>
-        <p class="text-lg max-w-3xl mx-auto mb-8 leading-relaxed drop-shadow-lg text-black">{{ data.description }}</p>
+        <h1 class="text-3xl md:text-5xl font-extrabold mb-4 drop-shadow-lg text-black">{{ data.name }}</h1>
+        <p class="text-base md:text-lg max-w-3xl mx-auto mb-8 leading-relaxed drop-shadow-lg text-black">{{ data.description }}</p>
       </div>
     </section>
 
-<<<<<<< HEAD
     <!-- Content Sections with Vertical Tabs -->
     <section class="container mx-auto py-12 px-4 bg-gray-100 rounded-lg">
-      <div class="flex">
+      <div class="flex flex-col md:flex-row">
         <!-- Vertical Tabs -->
-        <div class="flex-shrink-0 w-64 bg-gradient-to-r from-purple-400 to-pink-300 rounded-lg shadow-lg p-4 overflow-hidden">
+        <div class="flex-shrink-0 w-full md:w-64 bg-gradient-to-r from-purple-400 to-pink-300 rounded-lg shadow-lg p-4 overflow-hidden">
           <div class="relative bg-gradient-to-r from-purple-500 to-pink-400 p-4 rounded-lg mb-4">
             <svg class="absolute inset-0 w-full h-full" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
               <circle cx="100" cy="100" r="100" fill="url(#gradient)" />
@@ -36,96 +35,33 @@
         </div>
 
         <!-- Content -->
-        <div class="flex-1 ml-4 bg-white rounded-lg shadow-lg p-6">
+        <div class="flex-1 mt-4 md:mt-0 md:ml-4 bg-white rounded-lg shadow-lg p-6">
           <div v-if="currentSection === 'Supervisors'">
-            <h2 class="text-4xl font-bold mb-6">Supervisors</h2>
-            <ul class="list-disc pl-4 text-xl">
+            <h2 class="text-2xl md:text-4xl font-bold mb-6">Supervisors</h2>
+            <ul class="list-disc pl-4 text-base md:text-xl">
               <li v-for="supervisor in data.supervisors" :key="supervisor">{{ supervisor }}</li>
             </ul>
           </div>
           
           <div v-else-if="currentSection === 'PhD Scholars'">
-            <h2 class="text-4xl font-bold mb-6">PhD Scholars</h2>
-            <p class="text-xl">Total PhD Scholars: {{ data.phd_scholars.total }}</p>
+            <h2 class="text-2xl md:text-4xl font-bold mb-6">PhD Scholars</h2>
+            <p class="text-base md:text-xl">Total PhD Scholars: {{ data.phd_scholars.total }}</p>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-=======
-    <!-- Content sections -->
-    <main class="flex-grow bg-gray-200">
-      <section id="Supervisors" class=" mx-auto py-8 px-4">
-        <div class="bg-white font-medium rounded-lg shadow-md">
-          <h2 class="text-3xl font-bold text-center text-white bg-blue-800 p-4 rounded-t-md">Supervisors</h2>
-          <div class="p-4 text-xl">
-            <ul class="list-disc pl-4">
-              <li v-for="supervisor in data.supervisors" :key="supervisor">{{ supervisor }}</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section id="PhD Scholars" class=" mx-auto py-8 px-4">
-        <div class="bg-white font-medium rounded-lg shadow-md">
-          <h2 class="text-3xl font-bold text-center text-white bg-blue-800 p-4 rounded-t-md">PhD Scholars</h2>
-          <div class="p-4 text-xl">
-            <p>Total PhD Scholars: {{ data.phd_scholars.total }}</p>
-            <div class=" ">
->>>>>>> f48b146bbdc2720d6a607c8f76264af52d2b06c4
               <div class="bg-white shadow-md rounded-md p-4">
-                <h3 class="text-2xl text-center font-semibold mb-2">Faculty-wise</h3>
-                <div class="p-4">
-                <iframe
-                  :src="FacUrl"
-                  class="w-full h-screen border-0"
-                  title="Faculty wise PDF"
-                ></iframe>
-              </div>
+                <h3 class="text-lg font-semibold mb-2">Faculty-wise</h3>
+                <a :href="data.phd_scholars.faculty_wise" target="_blank" class="text-blue-500 hover:text-blue-700">View Faculty-wise PhD Scholars</a>
               </div>
               <div class="bg-white shadow-md rounded-md p-4">
-                <h3 class="text-2xl text-center font-semibold mb-2">Department-wise</h3>
-
-          <div class="table-container">
-            <table class="min-w-full divide-y divide-gray-200">
-              <thead class="bg-gray-800">
-                <!-- Main Headings -->
-                <tr>
-                  <th rowspan="2" class="px-6 py-3 text-left text-xl font-medium text-white uppercase tracking-wider">S.No</th>
-                  <th rowspan="2" class="px-6 py-3 text-left text-xl font-medium text-white uppercase tracking-wider">Department</th>
-                  <th colspan="2" class="px-6 py-3 text-left text-xl font-medium text-white uppercase tracking-wider">PhD Completed</th>
-                  <th colspan="2" class="px-6 py-3 text-left text-xl font-medium text-white uppercase tracking-wider">PhD Registered</th>
-                  <th rowspan="2" class="px-6 py-3 text-left text-xl font-medium text-white uppercase tracking-wider">Completed FT & PT</th>
-                  <th rowspan="2" class="px-6 py-3 text-left text-xl font-medium text-white uppercase tracking-wider">Registered FT & PT</th>
-                  <th rowspan="2" class="px-6 py-3 text-left text-xl font-medium text-white uppercase tracking-wider">OVERALL FT & PT</th>
-                </tr>
-                <!-- Sub-Headings -->
-                <tr>
-                  <th class="px-6 py-3 text-left text-xl font-medium text-white uppercase tracking-wider">Full Time</th>
-                  <th class="px-6 py-3 text-left text-xl font-medium text-white uppercase tracking-wider">Part Time</th>
-                  <th class="px-6 py-3 text-left text-xl font-medium text-white uppercase tracking-wider">Full Time</th>
-                  <th class="px-6 py-3 text-left text-xl font-medium text-white uppercase tracking-wider">Part Time</th>
-                </tr>
-              </thead>
-              <tbody class="bg-white divide-y divide-gray-200">
-                <tr v-for="(row, index) in data.phd_scholars.tableData" :key="index">
-                  <td class="px-6 py-4 whitespace-nowrap">{{ row.sno }}</td>
-                  <td class="px-6 py-4 whitespace-nowrap">{{ row.department }}</td>
-                  <td class="px-6 py-4 whitespace-nowrap">{{ row.phdCompletedFullTime }}</td>
-                  <td class="px-6 py-4 whitespace-nowrap">{{ row.phdCompletedPartTime }}</td>
-                  <td class="px-6 py-4 whitespace-nowrap">{{ row.phdRegisteredFullTime }}</td>
-                  <td class="px-6 py-4 whitespace-nowrap">{{ row.phdRegisteredPartTime }}</td>
-                  <td class="px-6 py-4 whitespace-nowrap">{{ row.completedFTPT }}</td>
-                  <td class="px-6 py-4 whitespace-nowrap">{{ row.registeredFTPT }}</td>
-                  <td class="px-6 py-4 whitespace-nowrap">{{ row.overallFTPT }}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
+                <h3 class="text-lg font-semibold mb-2">Department-wise</h3>
+                <a :href="data.phd_scholars.department_wise" target="_blank" class="text-blue-500 hover:text-blue-700">View Department-wise PhD Scholars</a>
+              </div>
             </div>
           </div>
           
           <div v-else-if="currentSection === 'PG Projects'">
-            <h2 class="text-4xl font-bold mb-6">PG Projects</h2>
-            <p class="text-xl">Total PG Projects: {{ data.pg_projects.total }}</p>
-            <table class="table-auto w-full bg-white shadow-md rounded-md mt-4">
+            <h2 class="text-2xl md:text-4xl font-bold mb-6">PG Projects</h2>
+            <p class="text-base md:text-xl">Total PG Projects: {{ data.pg_projects.total }}</p>
+            <table class="table-auto w-full bg-white shadow-md rounded-md mt-4 text-sm md:text-base">
               <thead>
                 <tr class="bg-gray-200">
                   <th class="px-4 py-2">Department</th>
@@ -142,9 +78,9 @@
           </div>
           
           <div v-else-if="currentSection === 'Stipend Details'">
-            <h2 class="text-4xl font-bold mb-6">Stipend Details</h2>
+            <h2 class="text-2xl md:text-4xl font-bold mb-6">Stipend Details</h2>
             <div class="overflow-x-auto">
-              <table class="table-auto w-full bg-white shadow-md rounded-md">
+              <table class="table-auto w-full bg-white shadow-md rounded-md text-sm md:text-base">
                 <thead class="bg-gray-800 text-white">
                   <tr>
                     <th class="px-4 py-2">Supervisor Name</th>
@@ -180,16 +116,12 @@
 
 <script>
 import data from '../assets/research-cell.json';
-import FacUrl from '@/assets/faculty-wise.pdf';
+
 export default {
   data() {
     return {
       data: data,
-<<<<<<< HEAD
       currentSection: 'Supervisors' // Default to first section
-=======
-      FacUrl
->>>>>>> f48b146bbdc2720d6a607c8f76264af52d2b06c4
     };
   }
 };

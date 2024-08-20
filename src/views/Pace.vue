@@ -24,12 +24,11 @@
       </div>
     </section>
 
-<<<<<<< HEAD
     <!-- Vertical Tabs Section -->
     <section class="mx-auto py-8 px-4 space-y-6 animate__animated animate__fadeInUp animate__slow">
-      <div class="relative flex">
+      <div class="relative flex flex-col md:flex-row">
         <!-- Vertical Tabs -->
-        <div class="flex-shrink-0 w-64 bg-gradient-to-r from-purple-400 to-pink-300 rounded-lg shadow-lg p-4 overflow-hidden">
+        <div class="flex-shrink-0 w-full md:w-64 bg-gradient-to-r from-purple-400 to-pink-300 rounded-lg shadow-lg p-4 mb-4 md:mb-0 md:mr-8 overflow-hidden">
           <div class="relative bg-gradient-to-r from-purple-500 to-pink-400 p-4 rounded-lg mb-4">
             <svg class="absolute inset-0 w-full h-full animate__animated animate__pulse animate__infinite" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
               <circle cx="100" cy="100" r="100" fill="url(#gradient)" />
@@ -56,45 +55,12 @@
         </div>
 
         <!-- Tab Content -->
-        <div class="flex-grow ml-8 p-4 relative">
+        <div class="flex-grow p-4 relative">
           <div v-if="currentSection === 'coordinators'" class="bg-gradient-to-r from-blue-500 to-blue-300 rounded-lg shadow-lg p-6 animate__animated animate__fadeIn animate__slow">
             <h3 class="text-3xl text-white font-bold mb-4">Coordinators</h3>
             <div class="space-y-4">
               <div
                 v-for="(coordinator, index) in paceData.coordinators"
-=======
-    <!-- Content sections -->
-    <div class="bg-indigo-100 mx-auto py-8 ">
-      <section class="py-8  p-10">
-        <div class="bg-white rounded-lg">
-          <h2 class="text-3xl text-center font-bold p-3 rounded-t-lg bg-gradient-to-r from-blue-500 to-cyan-300">Description</h2>
-          <p class="font-medium text-xl p-4">{{ paceData.description }}</p>
-        </div>
-        <div class="bg-white rounded-lg">
-          <h2 class="text-3xl text-center mt-8 mb-6 rounded-t-lg font-bold p-4 bg-gradient-to-r from-blue-500 to-cyan-300">Coordinators</h2>
-          <div class="flex flex-cols justify-around">
-          <div
-            v-for="(coordinator, index) in paceData.coordinators"
-            :key="index"
-            class="bg-shadow p-6 text-xl font-medium rounded-lg "
-          >
-            <p><strong>Name:</strong> {{ coordinator.name }}</p>
-            <p><strong>Position:</strong> {{ coordinator.position }}</p>
-          </div>
-          <div v-if="paceData.support_staff.length">
-            <h3 class="text-3xl font-bold p-6">Support Staff</h3>
-            <ul class="text-xl font-medium list-disc list-inside p-4 ">
-              <li v-for="(staff, index) in paceData.support_staff" :key="index">
-                {{ staff }}
-              </li>
-            </ul>
-          </div>
-          <div v-if="paceData.student_volunteers.length">
-            <h3 class="text-3xl font-bold p-6">Student Volunteers</h3>
-            <ul class="text-xl font-medium list-disc list-inside p-4">
-              <li
-                v-for="(volunteer, index) in paceData.student_volunteers"
->>>>>>> f48b146bbdc2720d6a607c8f76264af52d2b06c4
                 :key="index"
                 class="p-4 rounded-lg bg-gray-100 animate__animated animate__fadeInUp"
               >
@@ -193,5 +159,37 @@ button:hover {
   color: white;
   transform: translateY(-2px);
   transition: all 0.3s ease-in-out;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .text-4xl {
+    font-size: 2rem;
+  }
+
+  .text-3xl {
+    font-size: 1.5rem;
+  }
+
+  .text-2xl {
+    font-size: 1.25rem;
+  }
+
+  .container {
+    padding: 1rem;
+  }
+
+  .flex-shrink-0 {
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .ml-8 {
+    margin-left: 0;
+  }
+
+  .p-4 {
+    padding: 1rem;
+  }
 }
 </style>
