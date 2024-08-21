@@ -1,57 +1,51 @@
 <template>
-    <div class=" flex-grow">
-      <!-- Hero section -->
-      <section class="bg-cover bg-center relative -z-10" :style="'background-image: url(http://192.168.72.231:5173/src/assets/library-hero.jpg)'">
-        <div class="absolute top-0 left-0 w-full h-full bg-black opacity-50"></div>
-        <div class="container mx-auto py-16 text-white p-9 relative z-10">
-          <h1 class="text-4xl font-bold mb-4">Library</h1>
-          <p class="text-xl mb-8">Explore our extensive library resources and services, including books, e-journals, and more.</p>
-        </div>
-      </section>
-  
-      <!-- Horizontal Tabs -->
-      <div class="sticky top-0 relative -z-10">
-        <div class="relative">
-          <div class="flex overflow-x-auto whitespace-nowrap tabs">
-            <button
-              v-for="(section, index) in sections"
-             :key="index"
-             @click="scrollToSection(section)"
-             :class="{
-               'bg-[#006994] text-white': activeSection === section,
-               'text-black bg-white hover:bg-[#006994] hover:text-white': activeSection !== section
-             }"
-             class="font-semibold p-4 text-xl transition duration-300 ease-in-out whitespace-nowrap"
-            >
-             {{ section }}
-            </button>
-          </div>
-         <div
-           class="absolute bottom-0 left-0 h-1 bg-[#006994] transition-all duration-300 ease-in-out"
-           :style="{ width: tabWidth + 'px', transform: `translateX(${tabOffset}px)` }"
-         ></div>
-        </div>
+  <main class="flex-grow">
+    <!-- Hero Section -->
+    <section 
+      class="hero-section bg-cover bg-center relative -z-10" 
+      :style="{ backgroundImage: `url(${backgroundImage})` }">
+      <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-blue-900 via-transparent to-blue-900 opacity-70"></div>
+      <div class="container mx-auto py-16 text-center relative z-10 px-4 md:px-0">
+        <h1 class="text-3xl md:text-4xl font-extrabold mb-4 drop-shadow-lg font-serif text-white">Library</h1>
+        <p class="text-base md:text-lg max-w-3xl mx-auto mb-8 leading-relaxed drop-shadow-lg font-sans text-white">Explore our extensive library resources and services, including books, e-journals, and more.</p>
       </div>
-  
-      <!-- Content sections -->
-      <section class="container mx-auto py-8 p-4">
-        <div v-for="section in sections" :key="section" :ref="section" class="mb-16">
-          <h2 class="text-2xl font-bold mb-4 p-2 bg-gradient-to-r from-blue-500 to-cyan-300">{{ section }}</h2>
-          <div v-if="section === 'About Library'">
-            <p class="text-xl mb-8">{{ libraryData.description }}</p>
+    </section>
+
+    <!-- Vertical Tabs Section -->
+    <section class="container mx-auto py-8 px-4">
+      <div class="relative flex flex-col md:flex-row">
+        <!-- Vertical Tabs -->
+        <div class="flex-shrink-0 md:w-64 bg-gradient-to-r from-purple-400 to-pink-300 rounded-lg shadow-lg p-4 overflow-hidden mb-4 md:mb-0">
+          <div class="relative bg-gradient-to-r from-purple-500 to-pink-400 p-4 rounded-lg mb-4 text-center md:text-left">
+            <h2 class="text-xl md:text-2xl text-white font-bold">Sections</h2>
           </div>
-          <div v-if="section === 'E-journals'">
-            <p>{{ libraryData.e_journals.description }}</p>
-            <ul class="list-disc pl-4">
+          <div class="space-y-4">
+            <button v-for="(section, index) in sections" :key="index" @click="scrollToSection(section)" :class="{'bg-gray-200': activeSection === section}" class="w-full py-2 px-4 bg-white text-gray-800 rounded-md font-semibold hover:bg-gray-200">{{ section }}</button>
+          </div>
+        </div>
+
+        <!-- Tab Content -->
+        <div class="flex-grow md:ml-8 p-4">
+          <div v-if="activeSection === 'About Library'" ref="AboutLibrary" class="bg-gradient-to-r from-blue-500 to-teal-300 rounded-lg shadow-lg p-6 mb-16">
+            <h3 class="text-2xl md:text-3xl text-white font-bold mb-4">About Library</h3>
+            <p class="text-xl">{{ libraryData.description }}</p>
+          </div>
+
+          <div v-if="activeSection === 'E-journals'" ref="EJournals" class="bg-gradient-to-r from-blue-500 to-teal-300 rounded-lg shadow-lg p-6 mb-16">
+            <h3 class="text-2xl md:text-3xl text-white font-bold mb-4">E-journals</h3>
+            <p class="text-xl mb-4">{{ libraryData.e_journals.description }}</p>
+            <ul class="list-disc pl-6 mb-4">
               <li v-for="feature in libraryData.e_journals.library_salient_features" :key="feature">{{ feature }}</li>
             </ul>
-            <p>Library Services:</p>
-            <ul class="list-disc pl-4">
+            <p class="text-xl font-semibold mb-2">Library Services:</p>
+            <ul class="list-disc pl-6">
               <li v-for="service in libraryData.e_journals.library_services" :key="service">{{ service }}</li>
             </ul>
           </div>
-          <div v-if="section === 'Library Resources'">
-            <p>{{ libraryData.library_resources.description }}</p>
+
+          <div v-if="activeSection === 'Library Resources'" ref="LibraryResources" class="bg-gradient-to-r from-blue-500 to-teal-300 rounded-lg shadow-lg p-6 mb-16">
+            <h3 class="text-2xl md:text-3xl text-white font-bold mb-4">Library Resources</h3>
+            <p class="text-xl mb-4">{{ libraryData.library_resources.description }}</p>
             <table class="min-w-full bg-white border border-gray-200">
               <thead>
                 <tr>
@@ -79,46 +73,59 @@
               </tbody>
             </table>
           </div>
-          <div v-if="section === 'Digital Library'">
-            <p>{{ libraryData.digital_library.description }}</p>
-            <ul class="list-disc pl-4">
+
+          <div v-if="activeSection === 'Digital Library'" ref="DigitalLibrary" class="bg-gradient-to-r from-blue-500 to-teal-300 rounded-lg shadow-lg p-6 mb-16">
+            <h3 class="text-2xl md:text-3xl text-white font-bold mb-4">Digital Library</h3>
+            <p class="text-xl mb-4">{{ libraryData.digital_library.description }}</p>
+            <ul class="list-disc pl-6">
               <li>{{ libraryData.digital_library.e_resources }}</li>
               <li>{{ libraryData.digital_library.multimedia }}</li>
             </ul>
           </div>
-          <div v-if="section === 'Open Access Resources'">
-            <ul class="list-disc pl-4">
+
+          <div v-if="activeSection === 'Open Access Resources'" ref="OpenAccessResources" class="bg-gradient-to-r from-blue-500 to-teal-300 rounded-lg shadow-lg p-6 mb-16">
+            <h3 class="text-2xl md:text-3xl text-white font-bold mb-4">Open Access Resources</h3>
+            <ul class="list-disc pl-6">
               <li v-for="resource in libraryData.open_access_resources" :key="resource">{{ resource }}</li>
             </ul>
           </div>
-          <div v-if="section === 'Library Sections'">
-            <h3 class="text-lg font-semibold mb-2">Reading Hall</h3>
+
+          <div v-if="activeSection === 'Library Sections'" ref="LibrarySections" class="bg-gradient-to-r from-blue-500 to-teal-300 rounded-lg shadow-lg p-6 mb-16">
+            <h3 class="text-2xl md:text-3xl text-white font-bold mb-4">Library Sections</h3>
+            <h4 class="text-lg font-semibold mb-2">Reading Hall</h4>
             <p>{{ libraryData.library_section.reading_hall }}</p>
-            <h3 class="text-lg font-semibold mb-2">Reference Section</h3>
+            <h4 class="text-lg font-semibold mb-2">Reference Section</h4>
             <p>{{ libraryData.library_section.reference_section }}</p>
-            <h3 class="text-lg font-semibold mb-2">Circulation Section</h3>
+            <h4 class="text-lg font-semibold mb-2">Circulation Section</h4>
             <p>{{ libraryData.library_section.circulation_section }}</p>
-            <h3 class="text-lg font-semibold mb-2">Periodical Section</h3>
+            <h4 class="text-lg font-semibold mb-2">Periodical Section</h4>
             <p>{{ libraryData.library_section.periodical_section }}</p>
           </div>
-          <div v-if="section === 'Faculty'">
+
+          <div v-if="activeSection === 'Faculty'" ref="Faculty" class="bg-gradient-to-r from-blue-500 to-teal-300 rounded-lg shadow-lg p-6 mb-16">
+            <h3 class="text-2xl md:text-3xl text-white font-bold mb-4">Faculty</h3>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div v-for="faculty in libraryData.faculty" :key="faculty.name" class="bg-white shadow-md rounded-md p-4">
-                <h3 class="text-lg font-semibold">{{ faculty.name }}</h3>
+                <h4 class="text-lg font-semibold">{{ faculty.name }}</h4>
                 <p>{{ faculty.designation }}</p>
               </div>
             </div>
           </div>
         </div>
-      </section>
-    </div>
-  </template>
+      </div>
+
+    </section>
+  </main>
+</template>
+
 <script>
+import backgroundImage from '@/assets/library.webp';
 import libraryData from '../assets/library.json';
 
 export default {
   data() {
     return {
+      backgroundImage,
       libraryData: libraryData,
       sections: [
         'About Library',
@@ -129,74 +136,28 @@ export default {
         'Library Sections',
         'Faculty'
       ],
-      activeSection: 'About Library',
-      tabWidth: 0,
-      tabOffset: 0
+      activeSection: 'About Library'
     };
-  },
-  mounted() {
-    this.handleScroll();
-    window.addEventListener('scroll', this.handleScroll);
-    window.addEventListener('resize', this.updateTabPosition);
-    this.updateTabPosition();
-  },
-  beforeDestroy() {
-    window.removeEventListener('scroll', this.handleScroll);
-    window.removeEventListener('resize', this.updateTabPosition);
   },
   methods: {
     scrollToSection(section) {
-      const element = this.$refs[section][0];
+      const element = this.$refs[section.replace(/ /g, '')];
       if (element) {
-        const offsetTop = element.offsetTop - 80; // Adjust if necessary
-        window.scrollTo({ top: offsetTop, behavior: 'smooth' });
-        this.activeSection = section;
-        this.updateTabPosition();
+        window.scrollTo({
+          top: element.offsetTop - 60, // Adjust offset as needed
+          behavior: 'smooth'
+        });
       }
-    },
-    handleScroll() {
-      const scrollPosition = window.scrollY + 150; // Adjust based on the desired offset
-      for (let section of this.sections) {
-        const element = this.$refs[section][0];
-        if (element) {
-          const offsetTop = element.offsetTop;
-          const offsetBottom = offsetTop + element.offsetHeight;
-          if (scrollPosition >= offsetTop && scrollPosition < offsetBottom) {
-            this.activeSection = section;
-            this.updateTabPosition();
-            break;
-          }
-        }
-      }
-    },
-    updateTabPosition() {
-      this.$nextTick(() => {
-        const activeTab = this.$el.querySelector(`button.bg-[#006994]`);
-        if (activeTab) {
-          const tabsContainer = this.$el.querySelector('.tabs');
-          this.tabWidth = activeTab.offsetWidth;
-          this.tabOffset = activeTab.offsetLeft - tabsContainer.scrollLeft;
-        }
-      });
+      this.activeSection = section;
     }
   }
 };
 </script>
 
 <style scoped>
-/* Custom Scrollbar */
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-.no-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-/* Ensuring horizontal tabs are fully visible */
-.tabs {
-  overflow-x: auto;
-  white-space: nowrap;
+.hero-section {
+  height: 60vh;
+  background-size: cover;
+  background-position: center;
 }
 </style>
-  
