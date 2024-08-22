@@ -35,7 +35,7 @@ const handleLogin = async () => {
       <div class="bg-[#aae0ed] text-black">
         <div class="container mx-auto px-4 text-sm" style="font-family: 'Clash Grotesk', sans-serif;">
           <div class="p-2 flex items-center justify-between animate-fadeIn">
-            <strong class="text-xl mr-5 animate-scaleUp">Counselling Code: <strong>2025</strong></strong>
+            <strong class="text-xl mr-5 blinking-text">Counselling Code: <strong>2025</strong></strong>
             <ul class="flex items-center justify-between">
               <li class="relative group">
                 <button class="px-4 py-2 animate-colorPulse">
@@ -152,14 +152,27 @@ const handleLogin = async () => {
     <main>
       <RouterView />
     </main>
-
+    
     <footer class="bg-[#21209c] text-white text-center py-4">
       <p class="animate-fadeIn">© 2024 Anna University Regional Campus Coimbatore</p>
     </footer>
+    
   </div>
 </template>
 
 <style>
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+.blinking-text {
+  animation: blink 2s infinite;
+}
+
 /* Keyframe animations for slides and fades */
 @keyframes slideInLeft {
   from {
@@ -345,5 +358,9 @@ const handleLogin = async () => {
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   width: 250px; /* Adjust width as needed */
+}
+#chatbot-container {
+  /* Styling for chatbot container */
+  z-index: 1000; /* Ensure it appears above other elements */
 }
 </style>

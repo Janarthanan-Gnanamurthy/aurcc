@@ -1,32 +1,28 @@
 <template>
   <div class="">
     <main>
-      <section class="hero min-h-screen overflow-hidden relative -z-10 ">
-        <div class="absolute top-0 left-0 w-full h-full bg-black opacity-50"></div>
-        <img src="/src/assets/Drone_shot.jpg" alt="">
-        <!-- <video 
-          autoplay 
-          loop 
-          muted 
-          playsinline
-          class=" w-full h-full object-cover -z-10"
-        >
-          <source src="../assets/videoplayback.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video> -->
-
-        
-
-        <div class="relative z-10 text-center text-white">
-          
-          <h1 class="text-5xl md:text-7xl font-bold mb-4">Welcome to Anna University</h1>
-          <p class="text-xl md:text-2xl mb-8">Empowering Minds, Shaping Futures</p>
-          <!-- <a href="#about" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full transition-colors">Learn More</a> -->
+      <!-- Running Scroll Section -->
+      <section class="running-scroll bg-gradient-to-r from-[#0a0a34] to-[#21209c] text-white py-3 relative -z-10 animate-colorPulse">
+        <div class="scroll-container">
+          <div class="scroll-content">
+            Admissions are open for 2024-2025. Apply now! | Scholarship opportunities available! | Upcoming events: Tech Fest 2024 | New AI and Data Science Program Launched!
+          </div>
         </div>
       </section>
 
-      <!-- About Section -->
-      <section id="about" class="py-20 bg-gradient-to-b from-white to-gray-100">
+
+      <!-- Hero Section -->
+      <section class="hero min-h-screen overflow-hidden relative -z-10 ">
+        <div class="absolute top-0 left-0 w-full h-full bg-black opacity-50"></div>
+        <img src="/src/assets/Drone_shot.jpg" alt="">
+        <div class="relative z-10 text-center text-white">
+          <h1 class="text-5xl md:text-7xl font-bold mb-4">Welcome to Anna University</h1>
+          <p class="text-xl md:text-2xl mb-8">Empowering Minds, Shaping Futures</p>
+        </div>
+      </section>
+
+       <!-- About Section -->
+       <section id="about" class="py-20 bg-gradient-to-b from-white to-gray-100">
         <div class="container mx-auto px-4">
           
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch" >
@@ -467,7 +463,36 @@ export default {
 </script>
 
 
-<style>
+
+<style scoped>
+.running-scroll {
+  background-color: #423e75;
+  color: rgb(255, 255, 255);
+  font-family: 'Clash Grotesk', sans-serif;
+  font-size: 1.25rem;
+}
+
+.running-scroll marquee {
+  font-weight: bold;
+}
+.scroll-container {
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.scroll-content {
+    display: inline-block;
+    animation: scroll-left 15s linear infinite;
+}
+
+@keyframes scroll-left {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
 @keyframes scroll {
   0% { transform: translateY(0); }
   100% { transform: translateY(calc(-100% + 300px)); }
@@ -478,9 +503,7 @@ export default {
   padding-bottom: 300px;
 }
 
-.news-scroll:hover, .events-scroll:hover {
-  animation-play-state: paused;
-}
+
 
 /* Animated List Styling */
 .animated-list {
@@ -520,4 +543,5 @@ export default {
   background-color: rgba(59, 130, 246, 0.1);
   transition: background-color 0.3s ease;
 }
+
 </style>
