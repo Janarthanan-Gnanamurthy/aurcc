@@ -2,7 +2,7 @@
   <div class="">
     <main>
       <!-- Running Scroll Section -->
-      <section class="running-scroll bg-gradient-to-r from-[#0a0a34] to-[#21209c] text-white py-3 relative -z-10 animate-colorPulse">
+      <section class="running-scroll bg-gradient-to-r from-[#0a0a34] to-[#21209c] text-white py-3 relative -z-10 ">
         <div class="scroll-container">
           <div class="scroll-content">
             Admissions are open for 2024-2025. Apply now! | Scholarship opportunities available! | Upcoming events: Tech Fest 2024 | New AI and Data Science Program Launched!

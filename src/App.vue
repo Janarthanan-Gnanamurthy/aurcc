@@ -64,71 +64,67 @@ const handleLogin = async () => {
     </ul>
           </div>
         </div>
-
       </div>
 
-    </div>
-    
-    <div class="sticky top-0 container mx-auto px-4 py-4">
-      <nav class="flex items-center justify-between" style="font-family: 'Clash Grotesk', sans-serif;" >
-        <div class="flex items-center">
-          <img src="./assets/logo.svg" alt="Logo" class="h-20 mr-4" />
-          <RouterLink to="/" class="" activeClass="border-yellow-600">
-            <p class="text-5xl font-bold">ANNA UNIVERSITY</p>
-            <span class="hidden lg:inline text-2xl font-bold"> REGIONAL CAMPUS COIMBATORE</span>
-          </RouterLink>
-        </div>
-        <div class="hidden lg:flex">
-          <ul class="flex space-x-2">
-            <li class="relative group">
-              <button class="px-4 py-2  hover:bg-blue-700 focus:outline-none focus:bg-blue-700 border-b-4 border-[#21209c] hover:border-[#fdb827]">
-                Administration
-              </button>
-              <ul
-                class="absolute z-20 left-0 mt-2 w-48 bg-white  shadow-lg  p-0 transition-all duration-300 opacity-0 invisible group-hover:visible group-hover:opacity-100 text-black"
-              >
-                <li><RouterLink to="/organogram" class="block px-4 py-2 hover:bg-blue-800 hover:text-white transition-all duration-300 ease-in-out">Organogram</RouterLink ></li>
-                <li><RouterLink to="/VC" class="block px-4 py-2 hover:bg-blue-800 hover:text-white transition-all duration-300 ease-in-out">Vice Chancellor</RouterLink ></li>
-                <li><RouterLink to="/Registrar" class="block px-4 py-2 hover:bg-blue-800 hover:text-white transition-all duration-300 ease-in-out">University Administration</RouterLink ></li>
-                <li><RouterLink to="administration" class="block px-4 py-2 hover:bg-blue-800 hover:text-white transition-all duration-300 ease-in-out">Administrative staff</RouterLink ></li>
-                <li><RouterLink to="/HOD" class="block px-4 py-2 hover:bg-blue-800 hover:text-white transition-all duration-300 ease-in-out">Head of the Departments</RouterLink ></li>
-                <li><RouterLink to="/COD" class="block px-4 py-2 hover:bg-blue-800 hover:text-white transition-all duration-300 ease-in-out">Cell coordinators</RouterLink ></li>
-                <li><RouterLink to="" class="block px-4 py-2 hover:bg-blue-800 hover:text-white transition-all duration-300 ease-in-out">Dean Office Staff</RouterLink ></li>
-
-              </ul>
-            </li>
-            <li class="relative group">
-              <button class="px-4 py-2  hover:bg-blue-700 focus:outline-none focus:bg-blue-700 border-b-4 border-[#21209c] hover:border-[#fdb827]">
-                Academics
-              </button>
-              <ul
-                class="absolute z-50 left-0 mt-2 w-48 bg-white  shadow-lg  p-0 transition-all duration-300 opacity-0 invisible group-hover:visible group-hover:opacity-100 text-black"
-              >
-                <li><RouterLink to="/programs_offered" class="block px-4 py-2 hover:bg-blue-800 hover:text-white transition-all duration-300 ease-in-out">Programs Offered</RouterLink ></li>
-                <li><RouterLink to="/curriculum_syllabus" class="block px-4 py-2 hover:bg-blue-800 hover:text-white transition-all duration-300 ease-in-out">Curriculum & Syllabus</RouterLink ></li>
-                <li><RouterLink to="/regulation" class="block px-4 py-2 hover:bg-blue-800 hover:text-white transition-all duration-300 ease-in-out">Regulations</RouterLink ></li>
-                <li><RouterLink to="/student_affairs" class="block px-4 py-2 hover:bg-blue-800 hover:text-white transition-all duration-300 ease-in-out">Student Affairs</RouterLink ></li>
-              </ul>
-            </li>
-            <li class="relative group">
-            <button class=" px-4 py-2 border-b-4 border-[#21209c] hover:border-[#fdb827] hover:bg-blue-700 focus:outline-none focus:bg-blue-700">
-                Departments
-              </button>
-              <ul
-                class="absolute z-20 left-0 mt-2 w-48 bg-white text-black shadow-lg  opacity-0 invisible group-hover:visible group-hover:opacity-100"
-              >
-                <li><RouterLink to="/departments/cse" class="block px-4 py-2 hover:bg-blue-800  hover:text-white transition-all duration-300 ease-in-out">Computer Science Engg</RouterLink ></li>
-                <li><RouterLink to="/departments/eee" class="block px-4 py-2 hover:bg-blue-800  hover:text-white transition-all duration-300 ease-in-out">Electrical and Electronics Engg</RouterLink ></li>
-                <li><RouterLink to="/departments/ece" class="block px-4 py-2 hover:bg-blue-800  hover:text-white transition-all duration-300 ease-in-out">Electronics and Communications Engg</RouterLink ></li>
-                <li><RouterLink to="/departments/mech" class="block px-4 py-2 hover:bg-blue-800  hover:text-white transition-all duration-300 ease-in-out">Mechanical Engg</RouterLink ></li>
-                <li><RouterLink to="/departments/mba" class="block px-4 py-2 hover:bg-blue-800  hover:text-white transition-all duration-300 ease-in-out">MBA</RouterLink ></li>
-                <li><RouterLink to="/departments/biotech" class="block px-4 py-2 hover:bg-blue-800  hover:text-white transition-all duration-300 ease-in-out">Bio-Technology</RouterLink ></li>
-                <li><RouterLink to="/departments/nanotech" class="block px-4 py-2 hover:bg-blue-800  hover:text-white transition-all duration-300 ease-in-out">Nano-Technology</RouterLink ></li>
-                <li><RouterLink to="/s&h" class="block px-4 py-2 hover:bg-blue-800  hover:text-white transition-all duration-300 ease-in-out">Science & Humanities</RouterLink ></li>
-              </ul>
-            </li>
-            <li class="relative group">
-              <button class="px-4 py-2 border-b-4 border-[#21209c] hover:border-[#fdb827] hover:bg-blue-700 focus:outline-none focus:bg-blue-700">
+      <div class="sticky top-0 container mx-auto px-4 py-4">
+        <nav class="flex items-center justify-between" style="font-family: 'Clash Grotesk', sans-serif;">
+          <div class="flex items-center animate-slideInLeft">
+            <img src="./assets/logo.svg" alt="Logo" class="h-20 mr-4" />
+            <RouterLink to="/" class="" activeClass="border-yellow-600">
+              <p class="text-5xl font-bold mr-4 animate-fadeScale">ANNA UNIVERSITY</p>
+              <span class="hidden lg:inline text-2xl font-bold mr-4 animate-fadeScale">REGIONAL CAMPUS COIMBATORE</span>
+            </RouterLink>
+          </div>
+          <div class="hidden lg:flex animate-slideInRight">
+            <ul class="flex space-x-2">
+              <li class="relative group">
+                <button class="px-4 py-2 hover:bg-blue-700 focus:outline-none focus:bg-blue-700 border-b-4 border-[#21209c] hover:border-[#fdb827]">
+                  Administration
+                </button>
+                <ul
+                  class="absolute z-20 left-0 mt-2 w-48 bg-white shadow-lg p-0 transition-all duration-300 opacity-0 invisible group-hover:visible group-hover:opacity-100 animate-slideDown text-black"
+                >
+                  <li><a href="/organogram" class="block px-4 py-2 hover:bg-blue-800 hover:text-white transition-all duration-300 ease-in-out">Organogram</a></li>
+                  <li><a href="/VC" class="block px-4 py-2 hover:bg-blue-800 hover:text-white transition-all duration-300 ease-in-out">Vice Chancellor</a></li>
+                  <li><a href="/Registrar" class="block px-4 py-2 hover:bg-blue-800 hover:text-white transition-all duration-300 ease-in-out">Administrator</a></li>
+                  <li><a href="administration" class="block px-4 py-2 hover:bg-blue-800 hover:text-white transition-all duration-300 ease-in-out">Administrative staff</a></li>
+                  <li><a href="/HOD" class="block px-4 py-2 hover:bg-blue-800 hover:text-white transition-all duration-300 ease-in-out">Head of the Departments</a></li>
+                  <li><a href="/COD" class="block px-4 py-2 hover:bg-blue-800 hover:text-white transition-all duration-300 ease-in-out">Centres Directors</a></li>
+                  <li><a href="" class="block px-4 py-2 hover:bg-blue-800 hover:text-white transition-all duration-300 ease-in-out">Dean Office Staff</a></li>
+                </ul>
+              </li>
+              <li class="relative group">
+                <button class="px-4 py-2 hover:bg-blue-700 focus:outline-none focus:bg-blue-700 border-b-4 border-[#21209c] hover:border-[#fdb827] ">
+                  Academics
+                </button>
+                <ul
+                  class="absolute z-50 left-0 mt-2 w-48 bg-white shadow-lg p-0 transition-all duration-300 opacity-0 invisible group-hover:visible group-hover:opacity-100 text-black animate-slideDown"
+                >
+                  <li><a href="/programs_offered" class="block px-4 py-2 hover:bg-blue-800 hover:text-white transition-all duration-300 ease-in-out">Programs Offered</a></li>
+                  <li><a href="/curriculum_syllabus" class="block px-4 py-2 hover:bg-blue-800 hover:text-white transition-all duration-300 ease-in-out">Curriculum & Syllabus</a></li>
+                  <li><a href="/regulation" class="block px-4 py-2 hover:bg-blue-800 hover:text-white transition-all duration-300 ease-in-out">Regulations</a></li>
+                  <li><a href="/student_affairs" class="block px-4 py-2 hover:bg-blue-800 hover:text-white transition-all duration-300 ease-in-out">Student Affairs</a></li>
+                </ul>
+              </li>
+              <li class="relative group">
+                <button class="px-4 py-2 border-b-4 border-[#21209c] hover:border-[#fdb827] hover:bg-blue-700 focus:outline-none focus:bg-blue-700 ">
+                  Departments
+                </button>
+                <ul
+                  class="absolute z-20 left-0 mt-2 w-48 bg-white text-black shadow-lg opacity-0 invisible group-hover:visible group-hover:opacity-100 animate-slideDown"
+                >
+                  <li><a href="/departments/cse" class="block px-4 py-2 hover:bg-blue-800 hover:text-white transition-all duration-300 ease-in-out">Computer Science Engg</a></li>
+                  <li><a href="/departments/eee" class="block px-4 py-2 hover:bg-blue-800 hover:text-white transition-all duration-300 ease-in-out">Electrical and Electronics Engg</a></li>
+                  <li><a href="/departments/ece" class="block px-4 py-2 hover:bg-blue-800 hover:text-white transition-all duration-300 ease-in-out">Electronics and Communications Engg</a></li>
+                  <li><a href="/departments/mech" class="block px-4 py-2 hover:bg-blue-800 hover:text-white transition-all duration-300 ease-in-out">Mechanical Engg</a></li>
+                  <li><a href="/departments/mba" class="block px-4 py-2 hover:bg-blue-800 hover:text-white transition-all duration-300 ease-in-out">MBA</a></li>
+                  <li><a href="/departments/biotech" class="block px-4 py-2 hover:bg-blue-800 hover:text-white transition-all duration-300 ease-in-out">Bio-Technology</a></li>
+                  <li><a href="/departments/nanotech" class="block px-4 py-2 hover:bg-blue-800 hover:text-white transition-all duration-300 ease-in-out">Nano-Technology</a></li>
+                  <li><a href="/departments/s&h" class="block px-4 py-2 hover:bg-blue-800 hover:text-white transition-all duration-300 ease-in-out">Science & Humanities</a></li>
+                </ul>
+              </li>
+              <li class="relative group">
+              <button class="px-4 py-2 border-b-4 border-[#21209c] hover:border-[#fdb827] hover:bg-blue-700 focus:outline-none focus:bg-blue-700 ">
                 Offices
               </button>
               <ul
