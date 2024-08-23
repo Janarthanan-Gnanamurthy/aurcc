@@ -54,13 +54,7 @@ const handleLogin = async () => {
               <li><a href="/library" class="px-4 py-2 text-black hover:animate-bounce">Library</a></li>
               <li><a href="/hostel" class="px-4 py-2 text-black hover:animate-bounce">Hostel</a></li>
               <li><a href="/contact" class="px-4 py-2 text-black hover:animate-bounce">Contact</a></li>
-              <div class="container mx-auto px-4 py-4 flex items-center justify-between">
-        <nav>
-          <ul class="flex space-x-4">
-            <li><router-link to="/login" class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">Admin</router-link></li>
-          </ul>
-        </nav>
-      </div>
+             
     </ul>
           </div>
         </div>

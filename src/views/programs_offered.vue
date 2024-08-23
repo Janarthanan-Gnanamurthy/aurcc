@@ -1,7 +1,9 @@
 <template>
   <div class="flex-grow">
     <!-- Hero section -->
-    <section class="relative bg-cover bg-center animate-fadeIn relative -z-10" :style="'background-image: url(http://192.168.72.231:5173/src/assets/student_affairs-hero.jpg)'">
+    <section 
+      class="hero-section bg-cover bg-center relative -z-10" 
+      :style="{ backgroundImage: `url(${backgroundImage})` }">
       <div class="absolute inset-0 bg-gradient-to-r from-purple-700 via-blue-800 to-cyan-600 opacity-70"></div>
       <div class="mx-auto py-24 text-white relative z-10 flex flex-col items-center text-center">
         <h1 class="text-5xl font-extrabold mb-4 animate-slideIn">Programs Offered</h1>
@@ -66,11 +68,12 @@
 
 <script>
 import data from '../assets/programs_offered.json';
-
+import backgroundImage from '../assets/programsoffered.webp'; 
 export default {
   data() {
     return {
       data: data,
+      backgroundImage: backgroundImage,
     };
   },
 };

@@ -1,8 +1,15 @@
 <template>
   <main class="flex-grow">
     <!-- Hero section -->
-    <section class="bg-yellow-300 text-black py-12">
-      <div class="container mx-auto text-center">
+    <section 
+    class="hero-section bg-cover relative -z-10" 
+    :style="{ 
+      backgroundImage: `url(${backgroundImage})`, 
+      backgroundSize: 'cover',
+      backgroundPosition: 'top center' 
+    }">
+      <div class="absolute top-0 left-0 w-full h-full bg-black opacity-50"></div>
+      <div class="container mx-auto py-16 text-white p-9 relative z-10">
         <h1 class="text-4xl font-bold">Fine Arts Club</h1>
       </div>
     </section>
@@ -49,10 +56,11 @@
 
 <script>
 import data from '../assets/fine arts.json';
-
+import backgroundImage from '@/assets/finearts.webp';  // Correct path for the image
 export default {
   data() {
     return {
+      backgroundImage: backgroundImage,
       description: data.description,
       officeBearers: data.office_bearers,
       coordinator: data.Coordinator
