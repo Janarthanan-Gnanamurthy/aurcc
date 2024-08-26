@@ -5,7 +5,7 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/',
+      path: '/aurcc/',
       name: 'home',
       component: HomeView
     },
@@ -15,22 +15,22 @@ const router = createRouter({
       component: () => import('../views/AboutView.vue')
     },
     {
-      path: '/departments/:departmentName',
+      path: '/aurcc/departments/:departmentName',
       name: 'department',
       component: ()=> import('../views/DepartmentsView.vue')
     },
     {
-      path: '/admissions/',
+      path: '/aurcc/admissions/',
       name: 'admissions',
       component: ()=> import('../views/AdmissionView.vue')
     },
     {
-      path: '/ed-cell/',
+      path: '/aurcc/ed-cell/',
       name: 'ED-cell',
       component: ()=> import('../views/EDcell.vue')
     },
     {
-      path: '/dgate/',
+      path: '/aurcc/dgate/',
       name: 'DGATE-cell',
       component: ()=> import('../views/DGATE.vue')
     },
@@ -55,27 +55,27 @@ const router = createRouter({
       component: ()=> import('../views/Examcell.vue')
     },
     {
-      path: '/hostel/',
+      path: '/aurcc/hostel/',
       name: 'hostel',
       component: ()=> import('../views/Hostel.vue')
     },
     {
-      path: '/nss/',
+      path: '/aurcc/nss/',
       name: 'nss',
       component: ()=> import('../views/NSSview.vue')
     },
     {
-      path: '/tamilmandram/',
+      path: '/aurcc/tamilmandram/',
       name: 'tamilmandram',
       component: ()=> import('../views/Tamilmandram.vue')
     },
     {
-      path: '/sports/',
+      path: '/aurcc/sports/',
       name: 'sports',
       component: ()=> import('../views/Sports.vue')
     },
     {
-      path: '/alumni/',
+      path: '/aurcc/alumni/',
       name: 'alumni',
       component: ()=> import('../views/Alumni.vue')
     },
